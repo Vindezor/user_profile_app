@@ -14,7 +14,3 @@ class Validators {
     return null;
   }
 }
-
-bool isOnlyLetters(String value) {
-  return RegExp(r'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$').hasMatch(value);
-}

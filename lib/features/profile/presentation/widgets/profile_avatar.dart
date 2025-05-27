@@ -1,5 +1,3 @@
-// core/presentation/widgets/profile_avatar.dart
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -26,8 +24,8 @@ class ProfileAvatar extends StatelessWidget {
       radius: radius,
       backgroundImage: imageProvider,
       child: (localPath == null && imageUrl.isEmpty)
-          ? const Icon(Icons.person, size: 100)
-          : null,
+        ? const Icon(Icons.person, size: 100)
+        : null,
     );
   }
 }

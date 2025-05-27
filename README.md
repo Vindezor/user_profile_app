@@ -1,6 +1,6 @@
 # 📱 Prueba Técnica - Perfil de Usuario (Flutter)
 
-Esta aplicación fue desarrollada como parte de una prueba técnica para una posición Mobile. El objetivo fue construir una pequeña app en Flutter que permita visualizar y editar el perfil de un usuario, simulando un entorno de aplicación laboral.
+Esta aplicación fue desarrollada como parte de una prueba técnica. El objetivo fue construir una pequeña app en Flutter que permita visualizar y editar el perfil de un usuario, simulando un entorno de aplicación laboral.
 
 ---
 

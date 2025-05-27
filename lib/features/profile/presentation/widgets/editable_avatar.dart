@@ -1,5 +1,3 @@
-// lib/widgets/editable_avatar.dart
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 

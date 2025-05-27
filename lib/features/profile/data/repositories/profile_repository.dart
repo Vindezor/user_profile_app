@@ -1,7 +1,6 @@
 import 'package:user_profile_app/features/profile/data/datasources/profile_remote_datasource.dart';
 import 'package:user_profile_app/features/profile/data/models/job_title_model.dart';
-
-import '../models/profile_model.dart';
+import 'package:user_profile_app/features/profile/data/models/profile_model.dart';
 
 class ProfileRepository {
   final ProfileRemoteDataSource remoteDataSource;

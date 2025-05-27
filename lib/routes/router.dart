@@ -1,4 +1,3 @@
-// lib/routes/router.dart
 import 'package:go_router/go_router.dart';
 import 'package:user_profile_app/features/profile/presentation/edit_profile_page.dart';
 import 'package:user_profile_app/features/profile/presentation/profile_page.dart';

@@ -85,7 +85,6 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     final jobTitlesAsync = ref.watch(jobTitlesProvider);
 
     return Scaffold(
-      // backgroundColor: Colors.purple[50],
       appBar: AppBar(title: const Text("Editar Perfil")),
       body: profileAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -148,82 +147,78 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                       ),
                       const SizedBox(height: 30),
                       isSaving
-                          ? const Center(child: CircularProgressIndicator())
-                          : ElevatedButton(
-                              style: ButtonStyles.primaryRounded(context),
-                              onPressed: hasChanges
-                                  ? () async {
-                                      if (_formKey.currentState!.validate()) {
-                                        setState(() {
-                                          isSaving = true;
-                                        });
+                        ? const Center(child: CircularProgressIndicator())
+                        : ElevatedButton(
+                            style: ButtonStyles.primaryRounded(context),
+                            onPressed: hasChanges ? () async {
+                              if (_formKey.currentState!.validate()) {
+                                setState(() {
+                                  isSaving = true;
+                                });
 
-                                        try {
-                                          await Future.delayed(
-                                              const Duration(seconds: 2));
-                                          ref
-                                              .read(profileProvider.notifier)
-                                              .updateProfile(
-                                                name: nameController.text,
-                                                lastName: lastNameController.text,
-                                                jobTitle: selectedJobTitle,
-                                                localImagePath:
-                                                    newImageFile?.path,
-                                              );
+                                try {
+                                  await Future.delayed(
+                                    const Duration(seconds: 2)
+                                  );
+                                  ref.read(profileProvider.notifier)
+                                    .updateProfile(
+                                      name: nameController.text,
+                                      lastName: lastNameController.text,
+                                      jobTitle: selectedJobTitle,
+                                      localImagePath: newImageFile?.path,
+                                    );
 
-                                          if (context.mounted) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: const Text(
-                                                    "Cambios guardados con éxito"),
-                                                behavior:
-                                                    SnackBarBehavior.floating,
-                                                dismissDirection:
-                                                    DismissDirection.up,
-                                                margin: EdgeInsets.only(
-                                                  bottom: MediaQuery.of(context)
-                                                          .size
-                                                          .height -
-                                                      100,
-                                                  right: 20,
-                                                  left: 20,
-                                                ),
-                                              ),
-                                            );
-                                            Navigator.pop(context);
-                                          }
-                                        } catch (e) {
-                                          if (context.mounted) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                  content: Text(
-                                                      "Error al guardar: $e")),
-                                            );
-                                          }
-                                        } finally {
-                                          if (context.mounted) {
-                                            setState(() {
-                                              isSaving = false;
-                                            });
-                                          }
-                                        }
-                                      }
-                                    }
-                                  : null,
-                              child: Text(
-                                "Guardar cambios",
-                                style: TextStyle(
-                                  color: hasChanges
-                                      ? Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary
-                                      : null,
-                                  fontSize: 16,
-                                ),
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      SnackBar(
+                                        content: const Text(
+                                            "Cambios guardados con éxito"),
+                                        behavior:
+                                            SnackBarBehavior.floating,
+                                        dismissDirection:
+                                            DismissDirection.up,
+                                        margin: EdgeInsets.only(
+                                          bottom: MediaQuery.of(context).size.height - 100,
+                                          right: 20,
+                                          left: 20,
+                                        ),
+                                      ),
+                                    );
+                                    Navigator.pop(context);
+                                  }
+                                } catch (e) {
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          "Error al guardar: $e"
+                                        )
+                                      ),
+                                    );
+                                  }
+                                } finally {
+                                  if (context.mounted) {
+                                    setState(() {
+                                      isSaving = false;
+                                    });
+                                  }
+                                }
+                              }
+                            }
+                            : null,
+                            child: Text(
+                              "Guardar cambios",
+                              style: TextStyle(
+                                color: hasChanges
+                                    ? Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary
+                                    : null,
+                                fontSize: 16,
                               ),
                             ),
+                          ),
                     ],
                   ),
                 ),

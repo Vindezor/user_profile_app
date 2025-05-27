@@ -1,5 +1,3 @@
-// core/theme/button_styles.dart
-
 import 'package:flutter/material.dart';
 
 class ButtonStyles {

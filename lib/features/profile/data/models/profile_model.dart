@@ -26,8 +26,8 @@ class ProfileModel {
       lastName: json['last_name'] ?? '',
       email: json['email'] ?? '',
       jobTitle: json['job_title'] != null
-          ? JobTitleModel.fromJson(json['job_title'])
-          : JobTitleModel.empty(),
+        ? JobTitleModel.fromJson(json['job_title'])
+        : JobTitleModel.empty(),
       photo: json['photo'] ?? '',
     );
   }

@@ -17,7 +17,6 @@ class ProfilePage extends ConsumerWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        // backgroundColor: Colors.purple[50],
         appBar: AppBar(title: const Text("Perfil")),
         body: profileAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
@@ -33,7 +32,6 @@ class ProfilePage extends ConsumerWidget {
                   imageUrl: profile.photo,
                   localPath: profile.localImagePath,
                 ),
-
                 const SizedBox(height: 20),
                 Text(
                   "${profile.firstName} ${profile.lastName}",
