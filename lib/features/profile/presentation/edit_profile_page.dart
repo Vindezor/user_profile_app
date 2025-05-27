@@ -44,6 +44,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
       orElse: () => jobTitles.first,
     );
 
+    // Para detectar cambios en los campos
     nameController.addListener(() => checkForChanges(profile));
     lastNameController.addListener(() => checkForChanges(profile));
     _initialized = true;
@@ -63,6 +64,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
   }
 
   Future<void> _pickImage() async {
+    //Se abre galeria para seleccionar imagen
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() {
@@ -75,6 +77,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
   @override
   void dispose() {
     nameController.dispose();
+    lastNameController.dispose();
     emailController.dispose();
     super.dispose();
   }
@@ -139,7 +142,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: emailController,
-                        readOnly: true,
+                        readOnly: true, //Como lo requerido no se permite modificar este campo
                         decoration: const InputDecoration(
                           labelText: "Correo electrónico",
                           border: AppStyles.inputBorder
