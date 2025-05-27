@@ -44,8 +44,8 @@ Esta aplicación fue desarrollada como parte de una prueba técnica. El objetivo
 ### Pasos
 
 ```bash
-git clone https://github.com/tuusuario/flutter-user-profile.git
-cd flutter-user-profile
+git clone https://github.com/Vindezor/user_profile_app
+cd user_profile_app
 flutter pub get
 flutter run
 ```
