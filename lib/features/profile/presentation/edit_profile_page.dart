@@ -165,6 +165,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                                               .read(profileProvider.notifier)
                                               .updateProfile(
                                                 name: nameController.text,
+                                                lastName: lastNameController.text,
                                                 jobTitle: selectedJobTitle,
                                                 localImagePath:
                                                     newImageFile?.path,

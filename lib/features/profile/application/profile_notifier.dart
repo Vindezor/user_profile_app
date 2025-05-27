@@ -21,12 +21,14 @@ class ProfileNotifier extends StateNotifier<AsyncValue<ProfileModel>> {
 
    void updateProfile({
     String? name,
+    String? lastName,
     JobTitleModel? jobTitle,
     String? localImagePath,
   }) {
     state = state.whenData((profile) {
       return profile.copyWith(
         firstName: name,
+        lastName: lastName,
         jobTitle: jobTitle,
         localImagePath: localImagePath ?? profile.localImagePath,
       );
